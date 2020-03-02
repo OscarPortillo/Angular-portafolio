@@ -1,3 +1,4 @@
 # Angular-portafolio
-# Que hdp, un curso de Angular hecho en casa.
-# La intención es hacer un portafolio
+# Esta APP se crea siguiendo un curso de Udemy.com
+
+#Se han creado componentes y el routermodule.
