@@ -12,23 +12,16 @@
       </svg>
     </label>
     <div class="ae-container-fluid rk-topbar">
-      <h1 class="rk-logo"><a href="index.html">OSCAR PORTAFOLIO<sup>tm</sup></a></h1>
+      <h1 class="rk-logo">
+        <a routerLink="">OSCAR PORTAFOLIO<sup>tm</sup></a>
+      </h1>
       <nav class="rk-navigation">
         <ul class="rk-menu">
-          <li class="active rk-menu__item"><a href="index.html" class="rk-menu__link">Inicio</a>
+          <li routerLinkActive="active" class="rk-menu__item">
+            <a routerLink="home" class="rk-menu__link">Inicio</a>
           </li>
-          <li class="rk-menu__item"><a href="blog.html" class="rk-menu__link">Blog</a>
-          </li>
-          <li class="rk-menu__item"><a href="#0" class="rk-menu__link">Páginas</a>
-            <nav class="rk-menu__sub">
-              <ul class="rk-container">
-                <li class="rk-menu__item"><a href="about.html" class="rk-menu__link">SOBRE MI</a></li>
-                <li class="rk-menu__item"><a href="documentation.html" class="rk-menu__link">Documentaciuón</a></li>
-                <li class="rk-menu__item"><a href="design-styles.html" class="rk-menu__link">Diseño de estuilos</a></li>
-              </ul>
-            </nav>
-          </li>
-          <li class="rk-menu__item"><a href="contact.html" class="rk-menu__link">Contact Us</a>
+          <li routerLinkActive="active" class="rk-menu__item">
+            <a routerLink="about" class="rk-menu__link">Sobre nosotros</a>
           </li>
         </ul>
         <form class="rk-search">
