@@ -16,24 +16,24 @@
         </p>
     </div>
     <div class="ae-grid__item item-lg-4 au-xs-ta-center">
-      <a href="#0" class="rk-social-btn ">
+      <a [href]="_servicio.info.facebook" class="rk-social-btn ">
         <svg>
           <use xlink:href="assets/img/symbols.svg#icon-facebook"></use>
         </svg>
       </a>
-      <a href="#0" class="rk-social-btn ">
+      <a [href]="_servicio.info.twitter" class="rk-social-btn ">
         <svg>
           <use xlink:href="assets/img/symbols.svg#icon-twitter"></use>
         </svg>
       </a>
-      <a href="#0" class="rk-social-btn ">
-        <svg>
-          <use xlink:href="assets/img/symbols.svg#icon-pinterest"></use>
-        </svg>
-      </a>
-      <a href="#0" class="rk-social-btn ">
+      <a [href]="_servicio.info.tumblr" class="rk-social-btn ">
         <svg>
           <use xlink:href="assets/img/symbols.svg#icon-tumblr"></use>
+        </svg>
+      </a>
+      <a [href]="_servicio.info.instagram" class="rk-social-btn ">
+        <svg>
+          <use xlink:href="assets/img/symbols.svg#icon-instagram"></use>
         </svg>
       </a>
     </div>
@@ -41,7 +41,7 @@
       <p class="rk-footer__text rk-footer__contact "> 
         <span class="ae-u-bold">Correo: </span>
         <span class="ae-u-bolder">
-          <a href="#0" class="rk-dark-color ">contact@urkuportfolio.com </a>
+          <a href="mailTo:{{_servicio.info.email}}" class="rk-dark-color ">oscar_9414ps@gmail.com </a>
         </span>
       </p>
       <p class="rk-footer__text rk-footer__by">Theme by 
