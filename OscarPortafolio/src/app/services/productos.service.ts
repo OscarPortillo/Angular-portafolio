@@ -18,8 +18,11 @@ export class ProductosService {
     .subscribe( (resp: ProductoInterface[]) => {
       this.productos = resp;
       this.cargando = false;
-      console.log(this.productos);
     });
 
+  }
+  getProducto( id: string) {
+    console.log(id);
+    return this.http.get(`https://angular-html-b9503.firebaseio.com/productos/${ id }.json`);
   }
 }
