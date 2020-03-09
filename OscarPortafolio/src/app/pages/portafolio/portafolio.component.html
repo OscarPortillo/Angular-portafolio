@@ -1,132 +1,32 @@
-<input type="radio" name="layout-ctrl" checked id="layout-base" class="layout-ctrl-input">
-<div class="ae-container-fluid rk-layout-ctrl-cont">
-    <label for="layout-base" class="rk-layout-ctrl">
-        <svg>
-            <use xlink:href="assets/img/symbols.svg#icon-view-default"></use>
-        </svg>
-    </label>
-</div>
-<input type="radio" name="layout-ctrl" id="layout-grid" class="layout-ctrl-input">
-<div class="ae-container-fluid rk-layout-ctrl-cont">
-    <label for="layout-grid" class="rk-layout-ctrl">
-        <svg>
-            <use xlink:href="assets/img/symbols.svg#icon-view-alt"></use>
-        </svg>
-    </label>
-</div>
-<div class="rk-layout-ctrl-mobile">
-    <svg viewBox="0 0 9 9" class="layout-mob-1">
-        <rect width="100%" height="100%" fill="currentColor"></rect>
-    </svg>
-    <svg viewBox="0 0 9 9" class="layout-mob-2">
-        <rect width="100%" height="100%" fill="currentColor"></rect>
-    </svg>
-    <svg viewBox="0 0 9 9" class="layout-mob-3">
-        <rect width="100%" height="100%" fill="currentColor"></rect>
-    </svg>
-    <svg viewBox="0 0 9 9" class="layout-mob-4">
-        <rect width="100%" height="100%" fill="currentColor"></rect>
-    </svg>
-</div>
-<section class="ae-container-fluid ae-container-fluid--inner loading rk-portfolio ">
-    <div class="rk-portfolio__items">
-        <a routerLink="/item" class="animated fadeIn rk-item rk-item--flex item-1 rk-size-12 rk-tosize-6 rk-landscape ">
-            <div class="item-meta">
-                <h2>Essential Stationery</h2>
-                <p>Branding</p>
-            </div>
-        </a>
-        <a href="portfolio-item.html" class="rk-item rk-item--flex item-2 rk-size-6  rk-portrait ">
-            <div class="item-meta">
-                <h2>Pickled Tousled</h2>
-                <p>Art Direction</p>
-            </div>
-        </a>
-        <a href="portfolio-item.html" class="rk-item rk-item--flex item-3 rk-size-6 rk-tosize-4 rk-portrait rk-tosquare">
-            <div class="item-meta">
-                <h2>Waistcoat vegan</h2>
-                <p>Graphic Design</p>
-            </div>
-        </a>
-        <div class="rk-items-cont rk-size-6 rk-tosize-8">
-            <a href="portfolio-item.html" class="rk-item rk-item--flex item-4 rk-size-12 rk-tosize-6 rk-landscape ">
-                <div class="item-meta">
-                    <h2>Tumblr hammock</h2>
-                    <p>Packaging</p>
-                </div>
-            </a>
-            <a href="portfolio-item.html" class="rk-item rk-item--flex item-5 rk-size-12 rk-tosize-6 rk-landscape ">
-                <div class="item-meta">
-                    <h2>Biodiesel etsy</h2>
-                    <p>Branding</p>
-                </div>
-            </a>
+<section class="ae-container-fluid ae-container-fluid--inner loading rk-portfolio">
+    <div align="center" *ngIf="productosService.cargando">
+        <h1>CARGANDO</h1>
+        <!-- 1 -->
+        <div class="loader loader--style1" title="0">
+            <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+                viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+                <path opacity="0.2" fill="#000"
+                    d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
+    s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
+    c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z" />
+                <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
+    C22.32,8.481,24.301,9.057,26.013,10.047z">
+                    <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 20 20"
+                        to="360 20 20" dur="0.5s" repeatCount="indefinite" />
+                </path>
+            </svg>
         </div>
-        <a href="portfolio-item.html" class="rk-item rk-item--flex item-6 rk-size-6 rk-tosize-4 rk-portrait rk-tosquare">
+        <p>Por favor espere...</p>
+    </div>
+    <div *ngIf="!productosService.cargando" class="ae-masonry ae-masonry-md-2 ae-masonry-xl-4">
+        <a *ngFor="let producto of productosService.productos" routerLink="/item"
+            class="animated fadeIn rk-item ae-masonry__item">
+            <img src="assets/img/{{ producto.url }}.jpg" alt="">
             <div class="item-meta">
-                <h2>Gentrify artisan</h2>
-                <p>Graphic Design</p>
+                <h2>{{ producto.titulo }}</h2>
+                <p>{{ producto.categoria }}</p>
             </div>
         </a>
-        <div class="rk-items-cont rk-size-4 rk-tosize-8">
-            <a href="portfolio-item.html" class="rk-item rk-item--flex item-7 rk-size-12 rk-tosize-6 rk-square ">
-                <div class="item-meta">
-                    <h2>Plaid austin</h2>
-                    <p>Graphic Design</p>
-                </div>
-            </a>
-            <a href="portfolio-item.html" class="rk-item rk-item--flex item-8 rk-size-12 rk-tosize-6 rk-square ">
-                <div class="item-meta">
-                    <h2>Trust fund</h2>
-                    <p>Packaging</p>
-                </div>
-            </a>
-        </div>
-        <a href="portfolio-item.html" class="rk-item rk-item--flex item-9 rk-size-8 rk-tosize-3 rk-square ">
-            <div class="item-meta">
-                <h2>Gentrify pork</h2>
-                <p>Branding</p>
-            </div>
-        </a>
-        <a href="portfolio-item.html" class="rk-item rk-item--flex item-10 rk-size-6 rk-tosize-3 rk-portrait rk-tosquare">
-            <div class="item-meta  rk-tosmallfont">
-                <h2>Waistcoat ugh</h2>
-                <p>UI/UX</p>
-            </div>
-        </a>
-        <div class="rk-items-cont rk-size-6 rk-tosize-6">
-            <a href="portfolio-item.html" class="rk-item rk-item--flex item-11 rk-size-12 rk-tosize-6 rk-landscape rk-tosquare">
-                <div class="item-meta">
-                    <h2>Deep v kogi</h2>
-                    <p>Graphic Design</p>
-                </div>
-            </a>
-            <a href="portfolio-item.html" class="rk-item rk-item--flex item-12 rk-size-12 rk-tosize-6 rk-landscape rk-tosquare">
-                <div class="item-meta">
-                    <h2>Venmo trust</h2>
-                    <p>Packaging</p>
-                </div>
-            </a>
-        </div>
-        <a href="portfolio-item.html" class="rk-item rk-item--flex item-13 rk-size-8 rk-tosize-3 rk-square ">
-            <div class="item-meta">
-                <h2>Venmo trust</h2>
-                <p>Ui/UX</p>
-            </div>
-        </a>
-        <div class="rk-items-cont rk-size-4 rk-tosize-6">
-            <a href="portfolio-item.html" class="rk-item rk-item--flex item-14 rk-size-12 rk-tosize-6 rk-square ">
-                <div class="item-meta">
-                    <h2>Gentrify semiotic</h2>
-                    <p>Art Direction</p>
-                </div>
-            </a>
-            <a href="portfolio-item.html" class="rk-item rk-item--flex item-15 rk-size-12 rk-tosize-6 rk-square ">
-                <div class="item-meta">
-                    <h2>Migas artisan</h2>
-                    <p>Photography</p>
-                </div>
-            </a>
-        </div>
     </div>
 </section>
