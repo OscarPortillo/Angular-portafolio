@@ -8,56 +8,55 @@ import { ProductoInterface } from '../interfaces/producto.interfaces';
 export class ProductosService {
 
   cargando = true;
-  productos: ProductoInterface[] = [];
-  productoFiltrado: ProductoInterface[] = [];
+  equipos: ProductoInterface[] = [];
+  equipoFiltrado: ProductoInterface[] = [];
 
   constructor( private http: HttpClient) {
-    this.cargarProductos();
+    this.cargarEquipos();
   }
 
-  private cargarProductos() {
+  private cargarEquipos() {
     // trabajando en base a promesas
     return new Promise( (resolve, reject) => {
-        this.http.get('https://angular-html-b9503.firebaseio.com/productos_idx.json')
+        this.http.get('https://angular-html-b9503.firebaseio.com/equipos_idx.json')
         .subscribe( (resp: ProductoInterface[]) => {
-        this.productos = resp;
+        this.equipos = resp;
         this.cargando = false;
         resolve(); // terminó éxitosamente
       });
     });
 
   }
-  getProducto( id: string) {
-    console.log(id);
-    return this.http.get(`https://angular-html-b9503.firebaseio.com/productos/${ id }.json`);
+  getEquipo( id: string) {
+    return this.http.get(`https://angular-html-b9503.firebaseio.com/equipos/${ id }.json`);
   }
 
-  buscarProducto( termino: string) {
-    if ( this.productos.length === 0 ) {
+  buscarEquipo( termino: string) {
+    if ( this.equipos.length === 0 ) {
       // cargar los productos
-      this.cargarProductos().then( () => {
-        // se ejecutará después de tener los productos
+      this.cargarEquipos().then( () => {
+        // se ejecutará después de tener los equipos
         // aplicar el filtro
-        this.filtrarProductos( termino );
+        this.filtrarEquipos( termino );
       });
     } else {
       // aplicar el filtro
-      this.filtrarProductos( termino );
+      this.filtrarEquipos( termino );
     }
   }
 
-  private filtrarProductos( termino: string) {
-    // this.productoFiltrado = this.productos.filter( producto => {
+  private filtrarEquipos( termino: string) {
+    // this.equipoFiltrado = this.productos.filter( producto => {
       // return true;
     // });
-    // console.log(this.productoFiltrado);
-    this.productoFiltrado = [];
+    // console.log(this.equipoFiltrado);
+    this.equipoFiltrado = [];
     termino = termino.toLowerCase();
-    this.productos.forEach ( prod => {
+    this.equipos.forEach ( prod => {
       const tituloLower = prod.titulo.toLowerCase();
       const categoria = prod.categoria.toLowerCase();
       if (categoria.indexOf ( termino ) >= 0 || tituloLower.indexOf ( termino ) >= 0) {
-        this.productoFiltrado.push( prod );
+        this.equipoFiltrado.push( prod );
       }
     });
   }

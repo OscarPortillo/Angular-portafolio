@@ -10,12 +10,12 @@ import { ProductosService } from '../../services/productos.service';
 export class SearchComponent implements OnInit {
 
   constructor( private route: ActivatedRoute,
-               public productoService: ProductosService ) { }
+               public equipoService: ProductosService ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe( params => {
       console.log(params.termino);
-      this.productoService.buscarProducto( params.termino );
+      this.equipoService.buscarEquipo( params.termino );
 
     });
 

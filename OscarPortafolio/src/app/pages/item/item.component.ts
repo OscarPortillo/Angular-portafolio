@@ -10,7 +10,7 @@ import { ProductoDescripcion } from '../../interfaces/producto-descripcion.inter
 })
 export class ItemComponent implements OnInit {
 
-  producto: ProductoDescripcion;
+  equipo: ProductoDescripcion;
   id: string;
   constructor( private route: ActivatedRoute,
                public productoService: ProductosService) { }
@@ -18,10 +18,10 @@ export class ItemComponent implements OnInit {
   ngOnInit(): void {
     this.route.params
     .subscribe( parametros => {
-      this.productoService.getProducto(parametros.id)
-      .subscribe( (producto: ProductoDescripcion) => {
+      this.productoService.getEquipo(parametros.id)
+      .subscribe( (equipo: ProductoDescripcion) => {
         this.id = parametros.id;
-        this.producto = producto;
+        this.equipo = equipo;
       });
     });
   }
